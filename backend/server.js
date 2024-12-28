@@ -39,9 +39,9 @@ app.delete("/api/deleteTask/:id", (req, res) => {
 
   if (taskIndex !== -1) {
     tasks.splice(taskIndex, 1);
-    res.json({ message: "Task Deleted successfully" });
+    res.status(200).json({ message: "Task Deleted successfully" });
   } else {
-    res.status(404);
+    res.status(404).json({ error: "Task no found" });
   }
 });
 

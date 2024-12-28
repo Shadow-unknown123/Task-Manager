@@ -70,8 +70,17 @@ function App() {
     fetch(`/api/deleteTask/${taskId}`, {
       method: "DELETE",
     })
-      .then((res) => res.json())
-      .then(() => setTasks(tasks.filter((task) => task.id !== taskId)));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to delete task");
+        }
+        return res.json(); // Ensure you handle the response from the server
+      })
+      .then(() => {
+        // Update the tasks list in the UI after successful deletion
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+      })
+      .catch((err) => console.error("Error:", err));
   };
 
   return (
