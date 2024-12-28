@@ -6,7 +6,7 @@ function App() {
   const [newTask, setNewTask] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api")
+    fetch("/api")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
@@ -19,7 +19,7 @@ function App() {
         iscompleted: false,
       };
 
-      fetch("http://localhost:5000/api/addTask", {
+      fetch("/api/addTask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ function App() {
       )
     );
 
-    fetch(`http://localhost:5000/api/updateTask/${taskId}`, {
+    fetch(`/api/updateTask/${taskId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ function App() {
   };
 
   const handleDeleteTask = (taskId) => {
-    fetch(`http://localhost:5000/api/deleteTask/${taskId}`, {
+    fetch(`/api/deleteTask/${taskId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
