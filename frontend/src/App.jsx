@@ -14,7 +14,7 @@ function App() {
   const handleAddTask = () => {
     if (newTask) {
       const newTaskObject = {
-        id: tasks.length + 1,
+        id: Date.now(),
         name: newTask,
         iscompleted: false,
       };
@@ -76,31 +76,31 @@ function App() {
 
   return (
     <div className="App">
-      <div className="mt-[80px] w-[600px] h-[800px] bg-white rounded-t-2xl scrollable">
-        <h1 className="heading-cust text-center bg-[#828B6C] py-7 font-semibold text-5xl text-[#EAEDC2] rounded-t-2xl ">
-          Task Manager
+      <div className="sm:mt-[55px] w-screen h-screen sm:w-[600px] sm:h-[845px] bg-white sm:rounded-t-3xl scrollable">
+        <h1 className="heading-cust text-center bg-[#342c21] py-7 font-semibold text-5xl text-[#ab9f88]  ">
+          Task It
         </h1>
-        <h1 className="py-7 font-semibold text-2xl ps-6 text-[#828B6C]">
+        <h1 className="py-7 font-bold text-3xl ps-6 text-[#5c5443]">
           Add a Task
         </h1>
-        <hr className="border-1 border-[#bdbdbd] w-[95%] mx-auto " />
+        <hr className="border-1 border-[#5c5443] w-[95%] mx-auto " />
         <div className="flex justify-center items-center flex-col">
           <input
             type="text"
             placeholder="Add a task here"
             value={newTask}
-            className=" w-[450px] mt-4 px-3 py-2 border-2 border-gray-300 rounded-lg"
+            className=" w-[87%] sm:w-[465px] mt-4 px-3 py-2 border-2 border-[#5c5443] rounded-lg font-mono text-lg font-semibold"
             onChange={(e) => setNewTask(e.target.value)}
           />
           <button
             onClick={handleAddTask}
-            className=" mt-2 px-6 py-2 bg-[#828B6C] text-center text-xl font-semibold text-[#EAEDC2] rounded-lg "
+            className=" mt-4 px-6 py-2 bg-[#4b3f2d] text-center text-xl font-semibold text-[#ab9f88]  border-2 border-[#483511] rounded-xl "
           >
             Add Task
           </button>
         </div>
 
-        <h1 className="py-7 font-semibold text-3xl ps-6 text-[#828B6C]">
+        <h1 className="py-7 font-bold text-3xl ps-6 text-[#5c5443]">
           Current Tasks
         </h1>
         <ul className="ps-7 pb-3 text-xl">
@@ -108,7 +108,7 @@ function App() {
             .filter((task) => !task.iscompleted)
             .map((task) => (
               <li
-                className={`cust-list flex items-center ${
+                className={`cust-list flex font-mono items-center ${
                   task.iscompleted ? "line-through opacity-50" : ""
                 }`}
                 key={task.id}
@@ -122,7 +122,7 @@ function App() {
                 {task.name}
                 {/* --------------------------delete button-------------------------- */}
                 <button
-                  className="ml-auto me-16 text-sm text-[#828B6C] border-2 border-[#828B6C] py-1 px-4 rounded-2xl hover:bg-[#828B6C] hover:text-white "
+                  className="ml-auto me-16 text-sm font-semibold text-[#4b3f2d] border-2 border-[#483511] py-1 px-4 rounded-2xl hover:bg-[#4b3f2d] hover:text-white "
                   onClick={() => handleDeleteTask(task.id)}
                 >
                   Delete
@@ -130,9 +130,9 @@ function App() {
               </li>
             ))}
         </ul>
-        <hr className="border-1 border-[#bdbdbd] w-[95%] mx-auto " />
+        <hr className="border-1 border-[#5c5443] w-[95%] mx-auto " />
 
-        <h1 className="py-7 mt-7 font-semibold text-3xl ps-6 text-[#828B6C]">
+        <h1 className="py-7 mt-7 font-bold text-3xl ps-6 text-[#5c5443]">
           Completed Tasks
         </h1>
         <ul className="ps-7 pb-3 text-xl">
@@ -154,7 +154,7 @@ function App() {
                 {task.name}
                 {/* --------------------------delete button-------------------------- */}
                 <button
-                  className=" ml-auto me-16 text-sm text-[#828B6C] border-2 border-[#828B6C] py-1 px-4 rounded-2xl hover:bg-[#828B6C] hover:text-white  "
+                  className=" ml-auto me-16 text-sm font-semibold text-[#4b3f2d] border-2 border-[#483511] py-1 px-4 rounded-2xl hover:bg-[#4b3f2d] hover:text-white  "
                   style={{
                     opacity: "1 !important",
                     textDecoration: "none !important",
@@ -166,7 +166,7 @@ function App() {
               </li>
             ))}
         </ul>
-        <hr className="border-1 border-[#bdbdbd] w-[95%] mx-auto " />
+        <hr className="border-1 border-[#5c5443] w-[95%] mx-auto " />
       </div>
     </div>
   );
