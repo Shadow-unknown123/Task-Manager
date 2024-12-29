@@ -23,13 +23,14 @@ app.post("/api/addTask", (req, res) => {
 
 app.put("/api/updateTask/:id", (req, res) => {
   const id = Number(req.params.id);
-  const isCompleted = req.body;
+  const { isCompleted } = req.body;
 
   const task = tasks.find((task) => task.id === id);
   if (task) {
     task.iscompleted = isCompleted;
+    res.json({ message: "Task updated succesfully" });
   } else {
-    res.status(404);
+    res.status(404).json({ message: "Task not found" });
   }
 });
 
