@@ -25,7 +25,7 @@ Created while learning how to build a basic full-stack app.
 
 ## Screenshot
 
-![Task It Screenshot](./public/Task-it-screenshot.png)
+![Task It Screenshot](./frontend/public/Task-it-screenshot.png)
 
 ---
 
